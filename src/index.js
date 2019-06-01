@@ -1,5 +1,15 @@
 import Dialog from '../packages/dialog/index.js';
 
-export default {
+const components = [
     Dialog
+]
+
+const install = function (Vue, opts = {}) {
+    components.forEach(component => {
+        Vue.component(component.name, component);
+    });
+}
+
+if (typeof window !== 'undefined' && window.Vue) {
+    install(window.vue)
 }
