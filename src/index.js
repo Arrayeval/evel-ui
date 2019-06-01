@@ -13,3 +13,8 @@ const install = function (Vue, opts = {}) {
 if (typeof window !== 'undefined' && window.Vue) {
     install(window.vue)
 }
+
+export default {
+    version: '2.9.1',
+    Dialog
+}
