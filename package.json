@@ -1,6 +1,6 @@
 {
   "name": "evel-ui",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "this is collections for evel-ui",
   "main": "src/index.js",
   "scripts": {
