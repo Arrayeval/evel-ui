@@ -16,5 +16,6 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 export default {
     version: '2.9.1',
-    Dialog
+    Dialog,
+    install
 }
