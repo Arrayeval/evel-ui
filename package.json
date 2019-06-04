@@ -18,5 +18,18 @@
   "bugs": {
     "url": "https://github.com/Arrayeval/evel-ui/issues"
   },
-  "homepage": "https://github.com/Arrayeval/evel-ui#readme"
+  "homepage": "https://github.com/Arrayeval/evel-ui#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "karma": "^4.1.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-firefox-launcher": "^1.1.0",
+    "karma-mocha": "^1.3.0",
+    "karma-requirejs": "^1.1.0",
+    "karma-sinon-chai": "^2.0.2",
+    "mocha": "^6.1.4",
+    "requirejs": "^2.3.6",
+    "sinon": "^7.3.2",
+    "sinon-chai": "^3.3.0"
+  }
 }

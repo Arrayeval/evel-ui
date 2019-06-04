@@ -23,7 +23,7 @@
   </div>
 </template>
 <script>
-  import Utils from '../../../utils/utils'
+  import Utils from '../../../src/utils/utils'
   export default {
     name: 'ElDialog',
     props: {
@@ -104,7 +104,7 @@
   }
 </script>
 <style scoped lang='scss'>
-  @import "../../../style/variable.scss";
+  @import "../../../src/style/variable.scss";
   .wrapper {
     position: fixed;
     top: 0;
