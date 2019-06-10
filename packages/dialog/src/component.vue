@@ -1,18 +1,15 @@
-
- 
- <!--弹窗组件-->
 <template>
   <div class="wrapper" v-show="isShow">
     <div class="content">
       <section v-if="type === 0" class="tip-div" @touchmove.stop.prevent  >
-        <div class="text" :style="tipTextStyle">{{ $t(textOptions.content) }}</div>
-        <div class="btn" @click="okClick">{{ $t(textOptions.leftBtn) }}</div>
+        <div class="text" :style="tipTextStyle">{{textOptions.content}}</div>
+        <div class="btn" @click="okClick">{{textOptions.leftBtn}}</div>
       </section>
       <section v-else-if="type === 1" class="confirm-div" @touchmove.stop.prevent  >
-        <div class="text" :style="confirmTextStyle">{{ $t(textOptions.content) }}</div>
+        <div class="text" :style="confirmTextStyle">{{textOptions.content}}</div>
         <div class="btn-div">
-          <span class="left-btn" @click="leftBtnClick">{{ $t(textOptions.leftBtn) }}</span>
-          <span class="right-btn" @click="rightBtnClick">{{ $t(textOptions.rightBtn) }}</span>
+          <span class="left-btn" @click="leftBtnClick">{{textOptions.leftBtn}}</span>
+          <span class="right-btn" @click="rightBtnClick">{{textOptions.rightBtn}}</span>
         </div>
       </section>
       <section v-else @touchmove="touchMove" @touchstart="touchStart" ref="selfDefPopBox" >

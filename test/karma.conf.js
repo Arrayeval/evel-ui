@@ -1,4 +1,6 @@
-const path = require('path');
+const path = require('path')
+const webpackConfig = require("../build/webpack.test")
+
 module.exports = (config) => {
   config.set({
     files: [
@@ -54,33 +56,7 @@ module.exports = (config) => {
       verbose: false // output config used by istanbul for debugging
     },
 
-    webpack: {
-      // webpack配置，针对测试脚本打包的compilation配置，与项目文件打包不相关
-      // 也可以引入独立的配置文件
-      mode: 'none',
-      module: {
-          rules: [
-            {
-              test: /\.m?js$/,
-              exclude: /(node_modules|bower_components)/,
-              use: {
-                loader: 'babel-loader',
-                options: {
-                  presets: ['env'],
-                },
-              }
-            },
-          //   {
-          //     test: /\.js$/,
-          //     include: path.resolve('src/lib'),
-          //     use: {
-          //         loader: 'istanbul-instrumenter-loader'
-          //     },
-          //  },
-          
-        ]
-      }
-    },
+    webpack: webpackConfig,
 
     webpackMiddleware: {
       //如果使用了webpack-dev-server则可以传入一些参数
