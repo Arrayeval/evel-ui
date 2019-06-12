@@ -8,7 +8,8 @@ const webpackConfig = {
         extensions: ['.js', '.vue', '.json'],
         modules: ['node_modules'],
         alias: {
-            'vue$': 'vue/dist/vue.esm.js'
+           // https://cn.vuejs.org/v2/guide/installation.html#%E5%AF%B9%E4%B8%8D%E5%90%8C%E6%9E%84%E5%BB%BA%E7%89%88%E6%9C%AC%E7%9A%84%E8%A7%A3%E9%87%8A
+           'vue$': 'vue/dist/vue.esm.js'
           }
     },
     module: {
