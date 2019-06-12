@@ -7,6 +7,7 @@ describe("ElDialog", () => {
      destroyVM(vm)   
     })
 
+    // 验证创建
     it("create ElDialog", () => {
         vm = createTest(ElDialog, {
             isShow: true,
@@ -17,19 +18,22 @@ describe("ElDialog", () => {
                 rightBtn: 'sure'
             }
         }, true)
-        expect(vm.$el.querySelector('.content  .text').textContent).to.equal('this is test demo');
+        expect(vm.$el.querySelector('.content  .text').textContent).to.equal('this is test demo')
+        expect(vm.$el.querySelector('.tip-div').classList.contains("tip-div")).to.true
     })
 
+    // 验证插槽
     it ("content slot", () => {
         vm = createVue(
             `<el-dialog> 
               <span class="slot-text">this is slot content</span>
              </el-dialog>
-            `
-            , {
-            isShow: true,
-            type: -1,
-        }, true)
+            `,
+            {
+                isShow: true,
+                type: -1,
+            }, 
+        true)
         expect(vm.$el.querySelector('.slot-text').textContent).to.equal('this is slot content');
     })
 })
