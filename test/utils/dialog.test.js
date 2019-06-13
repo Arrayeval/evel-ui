@@ -1,5 +1,6 @@
 import { createTest, createVue, destroyVM } from './utils';
 import ElDialog from "../../packages/dialog"
+// import { read } from 'fs';
 var expect = require('chai').expect;
 describe("ElDialog", () => {
     let vm
@@ -35,5 +36,36 @@ describe("ElDialog", () => {
             }, 
         true)
         expect(vm.$el.querySelector('.slot-text').textContent).to.equal('this is slot content');
+    })
+
+    // 验证事件
+    it ('ElDialog Click Event', (done) => { // 验证事件，需要使用done配合
+        vm = createVue({
+            template: `<div class="test-dialog-event">
+                <el-dialog @okClick="dialogOkClick" :type="type" :textOptions="textOptions"></el-dialog>
+                <span class="test-dialog-text">{{testText}}</span>
+            </div>  `,
+            data () {
+                return {
+                    testText: '',
+                    type: 0,
+                    textOptions: {
+                        content: 'content',
+                        leftBtn: 'cancel',
+                        rightBtn: 'sure'
+                    }
+                }
+            },
+            methods: {
+                dialogOkClick () {
+                    this.testText = this.textOptions.content
+                }
+            }
+        })
+        vm.$el.querySelector('.test-dialog-event .content .btn').click()
+        setTimeout(() => {
+            expect(vm.$el.querySelector('.test-dialog-event .test-dialog-text').textContent).to.equal('content');
+            done()
+        }, 0)
     })
 })
