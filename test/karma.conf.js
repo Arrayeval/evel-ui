@@ -31,28 +31,6 @@ module.exports = (config) => {
           subdir: 'html'
         }
       },
-      thresholds: {
-        emitWarning: false, // set to `true` to not fail the test command when thresholds are not met
-        // thresholds for all files
-        global: {
-          statements: 100,
-          lines: 100,
-          branches: 100,
-          functions: 100
-        },
-        // thresholds per file
-        each: {
-          statements: 100,
-          lines: 100,
-          branches: 100,
-          functions: 100,
-          // overrides: {
-          //   'baz/component/**/*.js': {
-          //     statements: 98
-          //   }
-          // }
-        }
-      },
       verbose: false // output config used by istanbul for debugging
     },
 
@@ -71,7 +49,6 @@ module.exports = (config) => {
         require("karma-chai"),
         require("karma-chrome-launcher"),
         require("karma-mocha-reporter"),
-        require("karma-spec-reporter"),
         require("karma-coverage-istanbul-reporter"),
         require("istanbul-instrumenter-loader")
     ],

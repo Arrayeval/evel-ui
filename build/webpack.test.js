@@ -1,9 +1,9 @@
+var path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const webpackConfig = {
     // webpack配置，针对测试脚本打包的compilation配置，与项目文件打包不相关
     // 也可以引入独立的配置文件
     mode: 'development',
-
     resolve: {
         extensions: ['.js', '.vue', '.json'],
         modules: ['node_modules'],
@@ -16,43 +16,42 @@ const webpackConfig = {
     module: {
         rules: [
           {
-            test: /\.m?js$/,
-            exclude: /(node_modules|bower_components)/,
+            test: /\.js$/,
+            include: path.resolve('src/utils/'),
             use: {
-              loader: 'babel-loader',
-              options: {
-                presets: ['env'],
-              },
-            }
-          },
-          {
-            test: /\.vue$/,
-            loader: 'vue-loader',
+                loader: 'istanbul-instrumenter-loader'
+            },
+         },
+        {
+          test: /\.m?js$/,
+          exclude: /(node_modules|bower_components)/,
+          use: {
+            loader: 'babel-loader',
             options: {
-              compilerOptions: {
-                preserveWhitespace: false
-              }
-            }
-          },
-          {
-            test: /\.scss$/,
-            use: [
-              {
-                loader: "css-loader" // translates CSS into CommonJS
-              }, 
-              {
-                loader: "sass-loader" // compiles Sass to CSS
-              }
-            ]
+              presets: ['env'],
+            },
           }
-        //   {
-        //     test: /\.js$/,
-        //     include: path.resolve('src/lib'),
-        //     use: {
-        //         loader: 'istanbul-instrumenter-loader'
-        //     },
-        //  },
-        
+        },
+        {
+          test: /\.vue$/,
+          loader: 'vue-loader',
+          options: {
+            compilerOptions: {
+              preserveWhitespace: false
+            }
+          }
+        },
+        {
+          test: /\.scss$/,
+          use: [
+            {
+              loader: "css-loader" // translates CSS into CommonJS
+            }, 
+            {
+              loader: "sass-loader" // compiles Sass to CSS
+            }
+          ]
+        }
       ]
     },
     plugins: [
